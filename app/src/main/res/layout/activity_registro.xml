@@ -59,7 +59,7 @@
             android:text="Ingrese los siguientes datos para poder completar su registro y poder disfrutar de nuestros servicios, gracias por elegir One Hand App" />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/nombreEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -68,7 +68,7 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress2"
+            android:id="@+id/emsilRegistroEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -77,7 +77,7 @@
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/editTextTextPassword2"
+            android:id="@+id/passwordRegistroEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -86,7 +86,7 @@
             android:inputType="textPassword" />
 
         <EditText
-            android:id="@+id/editTextTextPassword3"
+            android:id="@+id/passwordRepRegistroEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -95,7 +95,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/siguienteButton"
             android:layout_width="200dp"
             android:layout_height="40dp"
             android:layout_gravity="center"
