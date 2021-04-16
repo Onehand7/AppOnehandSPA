@@ -30,7 +30,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="276dp"
-        android:layout_height="274dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
 
         <Button
             android:id="@+id/loginButton"
-            android:layout_width="200dp"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
             android:background="#009688"
@@ -76,6 +76,16 @@
             android:layout_marginTop="50dp"
             android:linksClickable="true"
             android:text="¿Ha olvidado su contraseña?" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <Button
+            android:id="@+id/registroButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar" />
 
     </LinearLayout>
 
