@@ -13,14 +13,18 @@ class LoginActivity : AppCompatActivity() {
 
         setup()
     }
-
     private fun setup(){
         val emailText = findViewById<EditText>(R.id.emailEditText)
         val passwordText = findViewById<EditText>(R.id.passwordEditText)
-        val btnLog = findViewById<Button>(R.id.loginButton)
+        val btn_Log = findViewById<Button>(R.id.loginButton)
+        val btn_registro = findViewById<Button>(R.id.registroButton)
 
-        btnLog.setOnClickListener {
+        btn_Log.setOnClickListener {
             val intent = Intent(this,MainActivity::class.java).apply {  }
+            startActivity(intent)
+        }
+        btn_registro.setOnClickListener {
+            val intent = Intent(this,RegistroActivity::class.java).apply {  }
             startActivity(intent)
         }
     }
