@@ -30,7 +30,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="276dp"
-        android:layout_height="274dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@
         app:layout_constraintVertical_bias="0.708">
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -50,7 +50,7 @@
             android:textColorLink="#0C0B0B" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -60,8 +60,8 @@
             android:textColorLink="#0C0B0B" />
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="200dp"
+            android:id="@+id/loginButton"
+            android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
             android:background="#009688"
@@ -69,12 +69,22 @@
             android:textAllCaps="false" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/olvidoContraText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
             android:text="¿Ha olvidado su contraseña?" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp" />
+
+        <Button
+            android:id="@+id/registroButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar" />
 
     </LinearLayout>
 
