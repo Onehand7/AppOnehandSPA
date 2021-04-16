@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".terminosActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="415dp"
+        android:layout_height="736dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/app_one_hand_registro__2_" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="142dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.076"
+        app:srcCompat="@drawable/logo_onehand" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="352dp"
+        android:layout_height="467dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginEnd="9dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.857">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="169dp"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="REGISTRO"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="345dp"
+            android:layout_height="67dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Ingrese los siguientes datos para completar tu registro y poder disfrutar de todos nuestros servicios,  Gracias por ocupar One Hand App" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="341dp"
+            android:layout_height="173dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="#7F87B5"
+            android:gravity="center"
+            android:text="Terminos y Condiciones de Uso"
+            android:textAllCaps="false"
+            android:textSize="30sp" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="He leido y acepto las condiciones de servicios y las politicas de privacidad de One Hand App" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="#009688"
+            android:text="Finalizar"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
