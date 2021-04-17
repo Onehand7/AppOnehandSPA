@@ -47,7 +47,9 @@
             android:ems="10"
             android:hint="Correo electronico"
             android:inputType="textEmailAddress"
-            android:textColorLink="#0C0B0B" />
+            android:textColorLink="#0C0B0B"
+
+            />
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -57,7 +59,8 @@
             android:ems="10"
             android:hint="Contraseña  (+6 caracteres)"
             android:inputType="textPassword"
-            android:textColorLink="#0C0B0B" />
+            android:textColorLink="#0C0B0B"
+            />
 
         <Button
             android:id="@+id/loginButton"
