@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "34727714719",
+    "firebase_url": "https://onehandspa-7b432-default-rtdb.firebaseio.com",
+    "project_id": "onehandspa-7b432",
+    "storage_bucket": "onehandspa-7b432.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34727714719:android:739e1045bcabf1e059a7aa",
+        "android_client_info": {
+          "package_name": "com.example.app_onehandspa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "34727714719-tfqpumc962mis631j5vbgtk232gcud76.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.app_onehandspa",
+            "certificate_hash": "f79c3b8b2c4feaff29660b92093a666c8df21737"
+          }
+        },
+        {
+          "client_id": "34727714719-dpj3nmcbrr6g26lufdjvdich4p2tq9f8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxRWNSXaiCaeVW3pRDItfdThGZtf6CDyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "34727714719-dpj3nmcbrr6g26lufdjvdich4p2tq9f8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

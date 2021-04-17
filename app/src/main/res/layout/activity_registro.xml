@@ -68,12 +68,10 @@
             android:inputType="textPersonName" />
 
         <EditText
-            android:id="@+id/emsilRegistroEditText"
+            android:id="@+id/emailRegistroEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:ems="10"
-            android:hint="Correo electronico"
             android:inputType="textEmailAddress" />
 
         <EditText
