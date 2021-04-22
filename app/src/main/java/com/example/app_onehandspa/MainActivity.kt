@@ -1,5 +1,6 @@
 package com.example.app_onehandspa
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,7 +10,8 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlin.math.log
 
 enum class ProvideType{
-    BASIC
+    BASIC,
+    GOOGLE
 }
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +24,12 @@ class MainActivity : AppCompatActivity() {
         val provider = bundle?.getString("provider")
 
         setup(email ?:"", provider ?:"")
+
+        // Guardar datosvde inicio de sesion
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+        prefs.putString("email",email)
+        prefs.putString("provider",provider)
+        prefs.apply()
     }
     private fun setup(email: String, provider: String){
         title = "Inicio"
@@ -33,9 +41,15 @@ class MainActivity : AppCompatActivity() {
         providerText.text = provider
 
         btn_cerrarSesion.setOnClickListener {
+            //borrar datos de inicio de sesion
+            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            prefs.clear()
+            prefs.apply()
+
             FirebaseAuth.getInstance().signOut()
             val logIntent = Intent(this,LoginActivity::class.java)
             startActivity(logIntent)
+
         }
 
     }

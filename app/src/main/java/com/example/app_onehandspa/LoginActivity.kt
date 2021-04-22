@@ -1,11 +1,14 @@
 package com.example.app_onehandspa
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PatternMatcher
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.util.PatternsCompat
@@ -21,7 +24,25 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         setup()
+        session()
     }
+
+    override fun onStart() {
+        super.onStart()
+        val auth_Layout = findViewById<LinearLayout>(R.id.authLayout)
+        auth_Layout.visibility = View.VISIBLE
+    }
+    private fun session(){
+        val auth_Layout = findViewById<LinearLayout>(R.id.authLayout)
+        val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val email = prefs.getString("email",null)
+        val provider = prefs.getString("provider",null)
+        if (email !=null && provider !=null){
+            auth_Layout.visibility = View.INVISIBLE
+            showMain(email,ProvideType.valueOf(provider))
+        }
+    }
+
     private fun setup(){
         val emailText = findViewById<EditText>(R.id.emailEditText)
         val passwordText = findViewById<EditText>(R.id.passwordEditText)
@@ -67,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
         if (false in result){
             return
         }
-        Toast.makeText(this,"Exito",Toast.LENGTH_SHORT).show()
+        Toast.makeText(this,"Correo o contraseña no validos",Toast.LENGTH_SHORT).show()
     }
 
     private fun validateEmail():Boolean{

@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/logo_onehand" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/authLayout"
         android:layout_width="276dp"
         android:layout_height="wrap_content"
         android:gravity="center"
