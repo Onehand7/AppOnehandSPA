@@ -6,16 +6,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PatternMatcher
 import android.view.View
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.util.PatternsCompat
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
+
+    //Inicializar variables
 
 
 
@@ -48,6 +47,7 @@ class LoginActivity : AppCompatActivity() {
         val passwordText = findViewById<EditText>(R.id.passwordEditText)
         val btn_Log = findViewById<Button>(R.id.loginButton)
         val btn_registro = findViewById<Button>(R.id.registroButton)
+        val olvidasteContraseña = findViewById<TextView>(R.id.olvidoContraseñaText)
 
         btn_Log.setOnClickListener {
 
@@ -74,6 +74,11 @@ class LoginActivity : AppCompatActivity() {
         btn_registro.setOnClickListener {
             val intent = Intent(this,RegistroActivity::class.java).apply {  }
             startActivity(intent)
+        }
+        olvidasteContraseña.setOnClickListener {
+            val olvidoIntent = Intent(this, RecuperarActivity::class.java).apply {  }
+            startActivity(olvidoIntent)
+            finish()
         }
     }
     private fun showMain(email:String,provider: ProvideType){

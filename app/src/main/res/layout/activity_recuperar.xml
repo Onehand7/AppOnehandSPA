@@ -28,7 +28,7 @@
         app:layout_constraintVertical_bias="0.498">
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/emailRecuperarText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -36,7 +36,7 @@
             android:inputType="textEmailAddress" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/recuperarButton"
             android:layout_width="235dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
