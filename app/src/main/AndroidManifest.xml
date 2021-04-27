@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_OnehandSPA">
+        <activity android:name=".SolicitudActivity"></activity>
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.App_OnehandSPA.NoActionBar"></activity>
+            android:theme="@style/Theme.App_OnehandSPA.NoActionBar" />
         <activity android:name=".RecuperarActivity" />
         <activity android:name=".terminosActivity" />
         <activity
