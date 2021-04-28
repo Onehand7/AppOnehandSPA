@@ -134,5 +134,10 @@ class RegistroActivity : AppCompatActivity() {
         }
     }
 
-
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this,LoginActivity::class.java).apply {  }
+        startActivity(intent)
+        finish()
+    }
 }
