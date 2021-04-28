@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_OnehandSPA">
-        <activity android:name=".SolicitudActivity"></activity>
+        <activity android:name=".Bienvenida2Activity"></activity>
+        <activity android:name=".BienvenidaActivity" />
+        <activity android:name=".SolicitudActivity" />
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
