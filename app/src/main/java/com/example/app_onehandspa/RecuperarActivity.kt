@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.util.PatternsCompat
 import com.google.firebase.auth.FirebaseAuth
@@ -20,6 +21,8 @@ class RecuperarActivity : AppCompatActivity() {
     private fun setup() {
         val emailRecuperar = findViewById<EditText>(R.id.emailRecuperarText)
         val btn_recuperar = findViewById<Button>(R.id.recuperarButton)
+        val iniciosesionText = findViewById<TextView>(R.id.inicioSesionText)
+        val registroText = findViewById<TextView>(R.id.registroText)
 
         btn_recuperar.setOnClickListener {
             if (emailRecuperar.text.isNotEmpty()){
@@ -39,6 +42,16 @@ class RecuperarActivity : AppCompatActivity() {
                 validate()
 
             }
+        }
+        iniciosesionText.setOnClickListener {
+            val intent = Intent(this,LoginActivity::class.java).apply {  }
+            startActivity(intent)
+            finish()
+        }
+        registroText.setOnClickListener {
+            val intent = Intent(this,RegistroActivity::class.java).apply {  }
+            startActivity(intent)
+            finish()
         }
     }
     private fun validate(){

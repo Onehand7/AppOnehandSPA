@@ -45,7 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Correo electronico"
+            android:hint="@string/login_email"
             android:inputType="textEmailAddress"
             android:textColorLink="#0C0B0B"
 
@@ -68,7 +68,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="40dp"
             android:background="#009688"
-            android:text="Iniciar sesión"
+            android:text="@string/button_iniciosesion"
             android:textAllCaps="false" />
 
         <TextView

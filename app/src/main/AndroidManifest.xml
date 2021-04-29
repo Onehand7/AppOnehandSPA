@@ -9,7 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_OnehandSPA">
-        <activity android:name=".RecuperarActivity"></activity>
+        <activity android:name=".paso4Activity"></activity>
+        <activity android:name=".paso3Activity" />
+        <activity android:name=".paso2Activity" />
+        <activity android:name=".paso1Activity" />
+        <activity android:name=".Bienvenida2Activity" />
+        <activity android:name=".BienvenidaActivity" />
+        <activity android:name=".SolicitudActivity" />
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/Theme.App_OnehandSPA.NoActionBar" />
+        <activity android:name=".RecuperarActivity" />
         <activity android:name=".terminosActivity" />
         <activity
             android:name=".RegistroActivity"
