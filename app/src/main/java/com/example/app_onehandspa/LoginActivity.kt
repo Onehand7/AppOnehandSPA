@@ -13,11 +13,6 @@ import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Pattern
 
 class LoginActivity : AppCompatActivity() {
-
-    //Inicializar variables
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -25,23 +20,25 @@ class LoginActivity : AppCompatActivity() {
         setup()
         session()
     }
-
+    //Funcion que se invoca cada vez que se muestra la pantalla , permite hacer visible el login
     override fun onStart() {
         super.onStart()
         val auth_Layout = findViewById<LinearLayout>(R.id.authLayout)
         auth_Layout.visibility = View.VISIBLE
     }
+    //Funcion que recupera si tenemos guardado un email y password
     private fun session(){
         val auth_Layout = findViewById<LinearLayout>(R.id.authLayout)
         val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = prefs.getString("email",null)
-        val provider = prefs.getString("provider",null)
-        if (email !=null && provider !=null){
+
+        if (email !=null){
+            //permite hacer invisible a login si hay una cuenta iniciada
             auth_Layout.visibility = View.INVISIBLE
-            showMain(email,ProvideType.valueOf(provider))
+            showMain(email)
         }
     }
-
+    //Funcion que contiene los eventos de botones en LoginActivity
     private fun setup(){
         val emailText = findViewById<EditText>(R.id.emailEditText)
         val passwordText = findViewById<EditText>(R.id.passwordEditText)
@@ -58,7 +55,11 @@ class LoginActivity : AppCompatActivity() {
                     passwordText.text.toString()
                 ).addOnCompleteListener{
                     if (it.isSuccessful){
-                        showMain(it.result?.user?.email ?:"",ProvideType.BASIC)
+                        //val intent = Intent(this,MenuActivity::class.java)
+                       // intent.putExtra("email",emailText.text.toString())
+                       // startActivity(intent)
+                        showMain(it.result?.user?.email?:"")
+
                     }else{
                         //Toast.makeText(this,"Usuario o contraseña incorrectos.", Toast.LENGTH_SHORT).show()
                         validate()
@@ -81,13 +82,14 @@ class LoginActivity : AppCompatActivity() {
             finish()
         }
     }
-    private fun showMain(email:String,provider: ProvideType){
-        val mainIntent = Intent(this,MainActivity::class.java).apply {
+    //Funcion que manda a llamar MainActivity
+    private fun showMain(email:String){
+        val mainIntent = Intent(this,MenuActivity::class.java).apply {
             putExtra("email",email)
-            putExtra("provider",provider.name)
         }
         startActivity(mainIntent)
     }
+    //Funcion que valida los datos ingresados en email y contraseña
     private fun validate(){
         val result = arrayOf(validateEmail(),validatePassword())
         if (false in result){
@@ -95,7 +97,7 @@ class LoginActivity : AppCompatActivity() {
         }
         Toast.makeText(this,"Correo o contraseña no validos",Toast.LENGTH_SHORT).show()
     }
-
+    //Funcion que valida el email
     private fun validateEmail():Boolean{
         val email = findViewById<EditText>(R.id.emailEditText)
         return when {
@@ -113,6 +115,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
+    //Funcion que valida la contraseña
     private fun validatePassword():Boolean{
         val password = findViewById<EditText>(R.id.passwordEditText)
         val passwordRegex = Pattern.compile(
@@ -132,7 +135,7 @@ class LoginActivity : AppCompatActivity() {
             }
         }
     }
-
+    //Funcion hacia atras del boton de la interfaz del celular
     override fun onBackPressed() {
         super.onBackPressed()
         val intent = Intent(this,LoginActivity::class.java).apply {  }

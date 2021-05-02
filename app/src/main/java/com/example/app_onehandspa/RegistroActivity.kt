@@ -34,7 +34,7 @@ class RegistroActivity : AppCompatActivity() {
                     passRepText.text.toString()
                 ).addOnCompleteListener{
                     if (it.isSuccessful && passRepText.text.toString() == passwordText.text.toString()){
-                        showMain(it.result?.user?.email ?:"",ProvideType.BASIC)
+                        showMain(it.result?.user?.email ?:"")
                     }else{
                         Toast.makeText(this,"Correo o contraseña erronea", Toast.LENGTH_SHORT).show()
                     }
@@ -46,15 +46,16 @@ class RegistroActivity : AppCompatActivity() {
         }
 
     }
-    private fun showMain(email:String,provider: ProvideType){
-        val mainIntent = Intent(this,MainActivity::class.java).apply {
+    //Función que manda a llamar a MenuActivity
+    private fun showMain(email:String){
+        val mainIntent = Intent(this,MenuActivity::class.java).apply {
             putExtra("email",email)
-            putExtra("provider",provider.name)
         }
         startActivity(mainIntent)
+
     }
 
-
+    //Funcion que valida los campos de nombre,email,contraseña y repetir contraseña
     private fun validate(){
 
         val result = arrayOf(validateNombre(),validateEmail(),validatePassword(),validateRepPassword())
@@ -64,6 +65,7 @@ class RegistroActivity : AppCompatActivity() {
 
         Toast.makeText(this,"Exito",Toast.LENGTH_SHORT).show()
     }
+    //Función que valida el campo Nombre
     private fun validateNombre():Boolean{
         val nombre = findViewById<EditText>(R.id.nombreEditText)
         return when {
@@ -77,7 +79,7 @@ class RegistroActivity : AppCompatActivity() {
             }
         }
     }
-
+    //Función que valida el campo Email
     private fun validateEmail():Boolean{
         val email = findViewById<EditText>(R.id.emailRegistroEditText)
         return when {
@@ -114,6 +116,7 @@ class RegistroActivity : AppCompatActivity() {
             }
         }
     }
+    //Función que valida el campo de la contraseña
     private fun validateRepPassword():Boolean{
         val passwordRep = findViewById<EditText>(R.id.passwordRepRegistroEditText)
         val passwordRegex = Pattern.compile(
@@ -133,7 +136,7 @@ class RegistroActivity : AppCompatActivity() {
             }
         }
     }
-
+    //Función hacia atras de la interfaz del celular
     override fun onBackPressed() {
         super.onBackPressed()
         val intent = Intent(this,LoginActivity::class.java).apply {  }
