@@ -33,7 +33,7 @@
         app:layout_constraintVertical_bias="0.105" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/continuarButton"
         android:layout_width="375dp"
         android:layout_height="50dp"
         android:gravity="center"
@@ -111,7 +111,7 @@
         app:srcCompat="@drawable/descargar__1___1_" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
+        android:id="@+id/descripcionText"
         android:layout_width="322dp"
         android:layout_height="75dp"
         android:ems="10"
@@ -126,7 +126,7 @@
         app:layout_constraintVertical_bias="0.189" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/tituloText"
         android:layout_width="322dp"
         android:layout_height="45dp"
         android:ems="10"

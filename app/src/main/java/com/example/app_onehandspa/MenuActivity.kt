@@ -23,7 +23,9 @@ import androidx.navigation.Navigation
 import com.example.app_onehandspa.ui.home.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
 
-class MenuActivity : AppCompatActivity() {
+class
+
+MenuActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var homeFragment: HomeFragment
