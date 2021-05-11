@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.App_OnehandSPA">
-        <activity android:name=".paso4Activity"></activity>
+        <activity android:name=".DescripcionProfesionalActivity"></activity>
+        <activity android:name=".ListaTecnicosActivity" />
+        <activity android:name=".paso4Activity" />
         <activity android:name=".paso3Activity" />
         <activity android:name=".paso2Activity" />
         <activity android:name=".paso1Activity" />
