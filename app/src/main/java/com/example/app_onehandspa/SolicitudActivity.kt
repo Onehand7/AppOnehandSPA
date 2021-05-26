@@ -15,15 +15,16 @@ class SolicitudActivity : AppCompatActivity() {
         //setup
         setup()
     }
+    //Funcion para el boton Continuar(Solo pasa a la siguiente pantalla)
     private fun setup(){
         val tituloTxt = findViewById<EditText>(R.id.tituloText)
         val descripcionTxt = findViewById<EditText>(R.id.descripcionText)
         val btn_continuar = findViewById<Button>(R.id.continuarButton)
         btn_continuar.setOnClickListener {
             if (tituloTxt.text.isNotEmpty() && descripcionTxt.text.isNotEmpty()){
-                val intent = Intent(this,MenuActivity::class.java)
+                val intent = Intent(this,ListaTecnicosActivity::class.java)
                 startActivity(intent)
-            }else{
+            }else{ 
                 validate()
             }
         }
@@ -33,11 +34,9 @@ class SolicitudActivity : AppCompatActivity() {
     private fun validate(){
         val result = arrayOf(validateTitulo(),validateDescripcion())
         if (false in result){
-            return
-        }else{
-            Toast.makeText(this,"Exito", Toast.LENGTH_SHORT).show()
-            
+            Toast.makeText(this,"Complete los campos para continuar",Toast.LENGTH_SHORT).show()
         }
+        Toast.makeText(this,"Exito",Toast.LENGTH_SHORT).show()
 
     }
     //Función que valida el campo titulo

@@ -97,6 +97,7 @@ class RegistroActivity : AppCompatActivity() {
             }
         }
     }
+    //Función que valida el campo de contraseña
     private fun validatePassword():Boolean{
         val password = findViewById<EditText>(R.id.passwordRegistroEditText)
         val passwordRegex = Pattern.compile(

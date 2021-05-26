@@ -15,15 +15,16 @@ class RecuperarActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recuperar)
-
+        //setup()
         setup()
     }
+    //Funcion que recupera la contraseña mediante el email
     private fun setup() {
         val emailRecuperar = findViewById<EditText>(R.id.emailRecuperarText)
         val btn_recuperar = findViewById<Button>(R.id.recuperarButton)
         val iniciosesionText = findViewById<TextView>(R.id.inicioSesionText)
         val registroText = findViewById<TextView>(R.id.registroText)
-
+        //Evento que recupera la contraseña
         btn_recuperar.setOnClickListener {
             if (emailRecuperar.text.isNotEmpty()){
                 FirebaseAuth.getInstance().sendPasswordResetEmail(emailRecuperar.text.toString())
@@ -54,6 +55,7 @@ class RecuperarActivity : AppCompatActivity() {
             finish()
         }
     }
+    //Función que valida el campo de email
     private fun validate(){
         val result = arrayOf(validateEmail())
         if (false in result){
@@ -61,7 +63,7 @@ class RecuperarActivity : AppCompatActivity() {
         }
         Toast.makeText(this,"Correo invalido",Toast.LENGTH_SHORT).show()
     }
-
+    //Función 
     override fun onBackPressed() {
         super.onBackPressed()
         val intent = Intent(this,LoginActivity::class.java).apply {  }
