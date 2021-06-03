@@ -6,12 +6,16 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.core.util.PatternsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.regex.Pattern
 
 class RegistroActivity : AppCompatActivity() {
+
+    //Referencia a la base de datos en Firebase
+    private val db = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registro)
@@ -34,6 +38,12 @@ class RegistroActivity : AppCompatActivity() {
                     passRepText.text.toString()
                 ).addOnCompleteListener{
                     if (it.isSuccessful && passRepText.text.toString() == passwordText.text.toString()){
+                        db.collection("users").document(emailRegistroText.text.toString()).set(
+                            hashMapOf(
+                                "nombre" to nombreText.text.toString(),
+                                "email" to emailRegistroText.text.toString()
+                            )
+                        )
                         showMain(it.result?.user?.email ?:"")
                     }else{
                         Toast.makeText(this,"Correo o contraseña erronea", Toast.LENGTH_SHORT).show()

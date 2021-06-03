@@ -6,8 +6,12 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.firestore.FirebaseFirestore
 
 class SolicitudActivity : AppCompatActivity() {
+    //Referencia a la base de datos en firebase
+    private val db = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_solicitud)
@@ -22,6 +26,12 @@ class SolicitudActivity : AppCompatActivity() {
         val btn_continuar = findViewById<Button>(R.id.continuarButton)
         btn_continuar.setOnClickListener {
             if (tituloTxt.text.isNotEmpty() && descripcionTxt.text.isNotEmpty()){
+                db.collection("solicitud").document().set(
+                    hashMapOf(
+                        "Titulo" to tituloTxt.text.toString(),
+                        "Descripción" to descripcionTxt.text.toString()
+                    )
+                )
                 val intent = Intent(this,ListaTecnicosActivity::class.java)
                 startActivity(intent)
             }else{ 
