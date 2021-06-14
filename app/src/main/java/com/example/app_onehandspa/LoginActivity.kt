@@ -1,4 +1,4 @@
-package com.example.app_onehandspa
+    package com.example.app_onehandspa
 
 import android.content.Context
 import android.content.Intent
@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.core.util.PatternsCompat
+import com.example.app_onehandspa.ui.home.HomeFragment
 import com.google.firebase.auth.FirebaseAuth
 import java.util.regex.Pattern
 
@@ -48,24 +49,24 @@ class LoginActivity : AppCompatActivity() {
 
         btn_Log.setOnClickListener {
 
-            if (emailText.text.isNotEmpty() && passwordText.text.isNotEmpty()){
+            if (emailText.text.isNotEmpty() && passwordText.text.isNotEmpty()) {
                 // SE CREA LA INSTANCA DE FIREBASEAUTH PERMITIENDO CREAR UN USUSARIO POR EMAIL Y PASSWORD
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(
                     emailText.text.toString(),
                     passwordText.text.toString()
-                ).addOnCompleteListener{
-                    if (it.isSuccessful){
+                ).addOnCompleteListener {
+                    if (it.isSuccessful) {
                         //val intent = Intent(this,MenuActivity::class.java)
-                       // intent.putExtra("email",emailText.text.toString())
-                       // startActivity(intent)
-                        showMain(it.result?.user?.email?:"")
+                        // intent.putExtra("email",emailText.text.toString())
+                        // startActivity(intent)
+                        showMain(it.result?.user?.email ?: "")
 
-                    }else{
+                    } else {
                         //Toast.makeText(this,"Usuario o contraseña incorrectos.", Toast.LENGTH_SHORT).show()
                         validate()
                     }
                 }
-            }else{
+            } else {
                 //MENSAJE EMERGENTE CON CLASE TOAST
                 //Toast.makeText(this,"Rellene los campos", Toast.LENGTH_SHORT).show()
                 validate()
@@ -84,10 +85,11 @@ class LoginActivity : AppCompatActivity() {
     }
     //Funcion que manda a llamar MainActivity
     private fun showMain(email:String){
-        val mainIntent = Intent(this,MenuActivity::class.java).apply {
+        println("AQUI ESTA EL EMAIL $email")
+        val intent = Intent(this,MenuActivity::class.java).apply {
             putExtra("email",email)
         }
-        startActivity(mainIntent)
+        startActivity(intent)
     }
     //Funcion que valida los datos ingresados en email y contraseña
     private fun validate(){

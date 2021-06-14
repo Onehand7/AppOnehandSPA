@@ -1,14 +1,18 @@
 package com.example.app_onehandspa
 
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
-class SolicitudActivity : AppCompatActivity() {
+class SolicitudActivity() : AppCompatActivity() {
     //Referencia a la base de datos en firebase
     private val db = FirebaseFirestore.getInstance()
 
@@ -16,10 +20,14 @@ class SolicitudActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_solicitud)
 
+        val bundleEmail = intent.extras
+        val datoEmail = bundleEmail?.getString("email")
+
+        Toast.makeText(this,"PASO A SOLICITUD: $datoEmail", Toast.LENGTH_SHORT).show()
         //setup
-        setup()
+            setup()
     }
-    //Funcion para el boton Continuar(Solo pasa a la siguiente pantalla)
+    //Funcion para el boton Continuar(Solo pasa a la siguiente pantalla ListaProfesional)
     private fun setup(){
         val tituloTxt = findViewById<EditText>(R.id.tituloText)
         val descripcionTxt = findViewById<EditText>(R.id.descripcionText)
@@ -47,7 +55,6 @@ class SolicitudActivity : AppCompatActivity() {
             Toast.makeText(this,"Complete los campos para continuar",Toast.LENGTH_SHORT).show()
         }
         Toast.makeText(this,"Exito",Toast.LENGTH_SHORT).show()
-
     }
     //Función que valida el campo titulo
     private fun validateTitulo():Boolean{
@@ -76,5 +83,23 @@ class SolicitudActivity : AppCompatActivity() {
                 true
             }
         }
+    }
+    override fun onBackPressed() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("¿Quieres dejar de solicitar?")
+        builder.setMessage("")
+        builder.setPositiveButton("Si") { dialogInterface: DialogInterface, i: Int ->
+            //borrar datos de inicio de sesion
+            val prefs = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE).edit()
+            prefs.clear()
+            prefs.apply()
+            FirebaseAuth.getInstance().signOut()
+            val logIntent = Intent(this,MenuActivity::class.java)
+            startActivity(logIntent)
+            finish()
+        }
+        builder.setNegativeButton("No") { dialogInterface: DialogInterface, i: Int ->
+        }
+        builder.show()
     }
 }

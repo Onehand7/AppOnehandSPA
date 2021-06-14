@@ -149,7 +149,7 @@
         app:layout_constraintVertical_bias="0.658" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textInformatica"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Informático"
@@ -170,7 +170,7 @@
         android:text="Electricista"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textInformatica"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
@@ -182,7 +182,7 @@
         android:text="electromecánico"
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textInformatica"
         app:layout_constraintEnd_toEndOf="@+id/btn_electromecanico"
         app:layout_constraintStart_toStartOf="@+id/btn_electromecanico" />
 
